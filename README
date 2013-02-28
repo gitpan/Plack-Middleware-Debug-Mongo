@@ -1,0 +1,60 @@
+NAME
+    Plack::Middleware::Debug::Mongo - Extend Plack::Middleware::Debug with
+    MongoDB panels
+
+VERSION
+    version 0.01
+
+SYNOPSIS
+        # inside your psgi app
+        use Plack::Builder;
+
+        my $app = sub {[
+            200,
+            [ 'Content-Type' => 'text/html' ],
+            [ '<html><body>OK</body></html>' ]
+        ]};
+
+        my $options = { host => 'mongodb://mongo.example.com:29111' };
+
+        builder {
+            mount '/' => builder {
+                enable 'Debug',
+                    panels => [
+                        [ 'Mongo::ServerStatus', connection => $options ],
+                    ];
+                $app;
+            };
+        };
+
+DESCRIPTION
+    This distribution extends Plack::Middleware::Debug with some MongoDB
+    panels. At the moment, panels listed below are available.
+
+PANELS
+  Mongo::ServerStatus
+    Display panel with generic MongoDB server information which is available
+    by the command *db.serverStatus()*. See
+    Plack::Middleware::Debug::Mongo::ServerStatus for additional
+    information.
+
+BUGS
+    Please report any bugs or feature requests through the web interface at
+    <https://github.com/Wu-Wu/Plack-Middleware-Debug-Mongo/issues>
+
+SEE ALSO
+    Plack::Middleware::Debug::Mongo::ServerStatus
+
+    Plack::Middleware::Debug
+
+    MongoDB
+
+AUTHOR
+    Anton Gerasimov, <chim@cpan.org>
+
+COPYRIGHT AND LICENSE
+    Copyright (C) 2013 by Anton Gerasimov
+
+    This library is free software; you can redistribute it and/or modify it
+    under the same terms as Perl itself.
+

@@ -1,0 +1,5 @@
+Revision history for Perl extension Plack::Middleware::Debug::Mongo.
+
+0.01  Wed Feb 27 15:33:04 2013
+    - original version
+

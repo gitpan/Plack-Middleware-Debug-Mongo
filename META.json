@@ -1,0 +1,60 @@
+{
+   "abstract" : "Extend Plack::Middleware::Debug with MongoDB panels",
+   "author" : [
+      "Anton Gerasimov <chim@cpan.org>"
+   ],
+   "dynamic_config" : 1,
+   "generated_by" : "ExtUtils::MakeMaker version 6.64, CPAN::Meta::Converter version 2.112621",
+   "license" : [
+      "perl_5"
+   ],
+   "meta-spec" : {
+      "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+      "version" : "2"
+   },
+   "name" : "Plack-Middleware-Debug-Mongo",
+   "no_index" : {
+      "directory" : [
+         "t",
+         "inc"
+      ]
+   },
+   "prereqs" : {
+      "build" : {
+         "requires" : {
+            "HTTP::Message" : 0,
+            "Plack" : 0,
+            "Test::MockObject" : 0,
+            "Test::More" : "0.98",
+            "Test::Pod" : "1.22",
+            "boolean" : 0
+         }
+      },
+      "configure" : {
+         "requires" : {
+            "ExtUtils::MakeMaker" : 0
+         }
+      },
+      "runtime" : {
+         "requires" : {
+            "MongoDB" : "0.502",
+            "Plack" : 0,
+            "Plack::Middleware::Debug" : 0,
+            "parent" : 0,
+            "perl" : "5.008009",
+            "strict" : 0,
+            "warnings" : 0
+         }
+      }
+   },
+   "release_status" : "stable",
+   "resources" : {
+      "bugtracker" : {
+         "web" : "https://github.com/Wu-Wu/Plack-Middleware-Debug-Mongo/issues"
+      },
+      "repository" : {
+         "url" : "https://github.com/Wu-Wu/Plack-Middleware-Debug-Mongo"
+      }
+   },
+   "version" : "0.01"
+}
