@@ -6,8 +6,10 @@ README
 eg/app.psgi
 t/00_load.t
 t/01_serverstatus.t
+t/02_database.t
 t/99_pod.t
 lib/Plack/Middleware/Debug/Mongo.pm
 lib/Plack/Middleware/Debug/Mongo/ServerStatus.pm
+lib/Plack/Middleware/Debug/Mongo/Database.pm
 META.yml                                 Module YAML meta-data (added by MakeMaker)
 META.json                                Module JSON meta-data (added by MakeMaker)

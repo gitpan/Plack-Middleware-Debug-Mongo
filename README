@@ -3,7 +3,7 @@ NAME
     MongoDB panels
 
 VERSION
-    version 0.01
+    version 0.02
 
 SYNOPSIS
         # inside your psgi app
@@ -15,13 +15,14 @@ SYNOPSIS
             [ '<html><body>OK</body></html>' ]
         ]};
 
-        my $options = { host => 'mongodb://mongo.example.com:29111' };
+        my $options = { host => 'mongodb://mongo.example.com:29111', db_name => 'sampledb' };
 
         builder {
             mount '/' => builder {
                 enable 'Debug',
                     panels => [
                         [ 'Mongo::ServerStatus', connection => $options ],
+                        [ 'Mongo::Database', connection => $options ],
                     ];
                 $app;
             };
@@ -29,14 +30,17 @@ SYNOPSIS
 
 DESCRIPTION
     This distribution extends Plack::Middleware::Debug with some MongoDB
-    panels. At the moment, panels listed below are available.
+    panels. At the moment, listed below panels are available.
 
 PANELS
   Mongo::ServerStatus
-    Display panel with generic MongoDB server information which is available
-    by the command *db.serverStatus()*. See
+    Display panel with MongoDB server status information. See
     Plack::Middleware::Debug::Mongo::ServerStatus for additional
     information.
+
+  Mongo::Database
+    Display panel with MongoDB database and its collections statistics. See
+    Plack::Middleware::Debug::Mongo::Database for additional information.
 
 BUGS
     Please report any bugs or feature requests through the web interface at
@@ -45,9 +49,20 @@ BUGS
 SEE ALSO
     Plack::Middleware::Debug::Mongo::ServerStatus
 
+    Plack::Middleware::Debug::Mongo::Database
+
     Plack::Middleware::Debug
 
     MongoDB
+
+    MongoDB Server Status Reference
+    <http://docs.mongodb.org/manual/reference/server-status/>
+
+    MongoDB Database Statistics Reference
+    <http://docs.mongodb.org/manual/reference/database-statistics/>
+
+    MongoDB Collection Statistics Reference
+    <http://docs.mongodb.org/manual/reference/collection-statistics/>
 
 AUTHOR
     Anton Gerasimov, <chim@cpan.org>

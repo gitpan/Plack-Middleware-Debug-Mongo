@@ -45,6 +45,12 @@ BEGIN {
     $dbh->mock('run_command'  => sub { $SERVER_STATUS });
 }
 
+{
+    use Plack::Middleware::Debug::Mongo::ServerStatus 'hashwalk';
+    can_ok 'Plack::Middleware::Debug::Mongo::ServerStatus', qw/prepare_app run/;
+    ok(defined &hashwalk, 'Mongo-ServerStatus: hashwalk imported');
+}
+
 # simple application
 my $app = sub {
     [

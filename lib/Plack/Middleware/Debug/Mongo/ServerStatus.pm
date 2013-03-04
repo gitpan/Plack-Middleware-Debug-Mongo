@@ -5,8 +5,17 @@ use warnings;
 use parent 'Plack::Middleware::Debug::Base';
 use Plack::Util::Accessor qw/connection mongo_client/;
 use MongoDB 0.502;
+use Exporter 'import';
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
+
+our %EXPORT_TAGS = (
+    'all' => [ qw(hashwalk) ]
+);
+our @EXPORT_OK   = (
+    @{ $EXPORT_TAGS{'all'} }
+);
+our @EXPORT      = ();
 
 sub prepare_app {
     my ($self) = @_;
@@ -71,7 +80,7 @@ Plack::Middleware::Debug::Mongo::ServerStatus - Server status debug panel for Pl
 
 =head1 VERSION
 
-version 0.01
+version 0.02
 
 =head1 SYNOPSIS
 
@@ -115,6 +124,17 @@ See L<Plack::Middleware::Debug>
 MongoDB connection options. Passed as HASH reference. Default server to connect is B<mongodb://localhost:27017>.
 For additional information please consult L<MongoDB::MongoClient> page.
 
+=head1 EXPORTED FUNCTIONS AND SUBROUTINES
+
+Plack::Middleware::Debug::Mongo::ServerStatus doesn't export any subroutines by default. On request available the
+following functions and subroutines.
+
+=head2 hashwalk
+
+Subroutine used to convert multidimensional hash references into simple hash reference. As well it converts DateTime and
+boolean objects received from MongoDB into human readable format. The L<Plack::Middleware::Debug::Mongo::Database> uses
+this subroutine.
+
 =head1 BUGS
 
 Please report any bugs or feature requests through the web interface at
@@ -122,9 +142,17 @@ L<https://github.com/Wu-Wu/Plack-Middleware-Debug-Mongo/issues>
 
 =head1 SEE ALSO
 
+L<Plack::Middleware::Debug::Mongo::Database>
+
 L<Plack::Middleware::Debug>
 
 L<MongoDB::MongoClient>
+
+L<DateTime>
+
+L<boolean>
+
+L<MongoDB Server Status Reference|http://docs.mongodb.org/manual/reference/server-status/>
 
 =head1 AUTHOR
 

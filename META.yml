@@ -33,4 +33,4 @@ requires:
 resources:
   bugtracker: https://github.com/Wu-Wu/Plack-Middleware-Debug-Mongo/issues
   repository: https://github.com/Wu-Wu/Plack-Middleware-Debug-Mongo
-version: 0.01
+version: 0.02
