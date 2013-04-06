@@ -1,5 +1,7 @@
 package Plack::Middleware::Debug::Mongo::Database;
 
+# ABSTRACT: Mongo database debug panel for Plack::Middleware::Debug
+
 use strict;
 use warnings;
 use parent 'Plack::Middleware::Debug::Base';
@@ -7,7 +9,8 @@ use Plack::Util::Accessor qw/connection mongo_client/;
 use MongoDB 0.502;
 use Plack::Middleware::Debug::Mongo::ServerStatus 'hashwalk';
 
-our $VERSION = '0.01';
+our $VERSION = '0.03'; # VERSION
+our $AUTHORITY = 'cpan:CHIM'; # AUTHORITY
 
 sub prepare_app {
     my ($self) = @_;
@@ -49,6 +52,7 @@ sub run {
 }
 
 1; # End of Plack::Middleware::Debug::Mongo::Database
+
 __END__
 
 =pod
@@ -59,7 +63,7 @@ Plack::Middleware::Debug::Mongo::Database - Mongo database debug panel for Plack
 
 =head1 VERSION
 
-version 0.01
+version 0.03
 
 =head1 SYNOPSIS
 
@@ -155,13 +159,13 @@ L<MongoDB Collection Statistics Reference|http://docs.mongodb.org/manual/referen
 
 =head1 AUTHOR
 
-Anton Gerasimov, E<lt>chim@cpan.orgE<gt>
+Anton Gerasimov <chim@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright (C) 2013 by Anton Gerasimov
+This software is copyright (c) 2013 by Anton Gerasimov.
 
-This library is free software; you can redistribute it and/or modify it
-under the same terms as Perl itself.
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
 
 =cut

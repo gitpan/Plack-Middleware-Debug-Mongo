@@ -4,15 +4,15 @@ author:
   - 'Anton Gerasimov <chim@cpan.org>'
 build_requires:
   HTTP::Message: 0
-  Plack: 0
+  Plack: 0.9979
   Test::MockObject: 0
   Test::More: 0.98
   Test::Pod: 1.22
   boolean: 0
 configure_requires:
-  ExtUtils::MakeMaker: 0
-dynamic_config: 1
-generated_by: 'ExtUtils::MakeMaker version 6.64, CPAN::Meta::Converter version 2.112621'
+  ExtUtils::MakeMaker: 6.30
+dynamic_config: 0
+generated_by: 'Dist::Zilla version 4.300030, CPAN::Meta::Converter version 2.120921'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -21,10 +21,28 @@ name: Plack-Middleware-Debug-Mongo
 no_index:
   directory:
     - t
-    - inc
+    - xt
+    - eg
+    - examples
+    - corpus
+  namespace:
+    - t::lib
+  package:
+    - DB
+provides:
+  Plack::Middleware::Debug::Mongo:
+    file: lib/Plack/Middleware/Debug/Mongo.pm
+    version: 0.03
+  Plack::Middleware::Debug::Mongo::Database:
+    file: lib/Plack/Middleware/Debug/Mongo/Database.pm
+    version: 0.03
+  Plack::Middleware::Debug::Mongo::ServerStatus:
+    file: lib/Plack/Middleware/Debug/Mongo/ServerStatus.pm
+    version: 0.03
 requires:
+  Carp: 0
   MongoDB: 0.502
-  Plack: 0
+  Plack: 0.9979
   Plack::Middleware::Debug: 0
   parent: 0
   perl: 5.008009
@@ -32,5 +50,7 @@ requires:
   warnings: 0
 resources:
   bugtracker: https://github.com/Wu-Wu/Plack-Middleware-Debug-Mongo/issues
-  repository: https://github.com/Wu-Wu/Plack-Middleware-Debug-Mongo
-version: 0.02
+  homepage: https://metacpan.org/release/Plack-Middleware-Debug-Mongo
+  repository: git://github.com/Wu-Wu/Plack-Middleware-Debug-Mongo.git
+version: 0.03
+x_authority: cpan:CHIM

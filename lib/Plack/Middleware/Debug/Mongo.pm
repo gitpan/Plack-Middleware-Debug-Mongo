@@ -1,12 +1,18 @@
 package Plack::Middleware::Debug::Mongo;
 
+# ABSTRACT: Extend Plack::Middleware::Debug with MongoDB panels
+
 use strict;
 use warnings;
 
-our $VERSION = '0.02';
+our $VERSION = '0.03'; # VERSION
+our $AUTHORITY = 'cpan:CHIM'; # AUTHORITY
 
 1; # End of Plack::Middleware::Debug::Mongo
+
 __END__
+
+=pod
 
 =head1 NAME
 
@@ -14,7 +20,7 @@ Plack::Middleware::Debug::Mongo - Extend Plack::Middleware::Debug with MongoDB p
 
 =head1 VERSION
 
-version 0.02
+version 0.03
 
 =head1 SYNOPSIS
 
@@ -80,13 +86,13 @@ L<MongoDB Collection Statistics Reference|http://docs.mongodb.org/manual/referen
 
 =head1 AUTHOR
 
-Anton Gerasimov, E<lt>chim@cpan.orgE<gt>
+Anton Gerasimov <chim@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright (C) 2013 by Anton Gerasimov
+This software is copyright (c) 2013 by Anton Gerasimov.
 
-This library is free software; you can redistribute it and/or modify it
-under the same terms as Perl itself.
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
 
 =cut
